@@ -1,0 +1,13 @@
+.container {
+  padding: 1rem;
+
+  .data {
+    &_success {
+      background-color: #56d121;
+    }
+
+    &_danger {
+      background-color: #f1574c;
+    }
+  }
+}
