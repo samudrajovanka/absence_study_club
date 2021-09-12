@@ -243,7 +243,7 @@ function HomePage({ initMeetings, initMentee, initPresenceMentee }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const snapshotMeetings = await firestore.collection('meetings').get();
   const meetings = snapshotMeetings.docs.map(doc => ({id: doc.id, ...doc.data()}));
   
@@ -258,7 +258,6 @@ export async function getStaticProps() {
       initMentee: mentee,
       initPresenceMentee: presenceMentee,
     },
-    revalidate: 60,
   }
 }
 
