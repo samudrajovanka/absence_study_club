@@ -57,7 +57,7 @@ function PresencesPage({ mentee }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const snapshot = await firestore.collection('mentee').get();
   const mentee = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
 
@@ -65,7 +65,6 @@ export async function getStaticProps() {
     props: {
       mentee,
     },
-    revalidate: 60,
   }
 }
 
